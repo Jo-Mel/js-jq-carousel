@@ -5,12 +5,23 @@ $('.next').click(function(){
     nextImg();
 });
 
-
 // Al click del pulsante prev richiamo la mia funzione che mi fa scorrere le imgs all'indientro
 $('.prev').click(function(){
     prevImg();
 });
 
+//**Bonus */
+
+$('.nav i').click(function(){
+    var current = $(this).index();
+
+    $('.images img').removeClass('active');
+    $('.images img').eq(current).addClass('active');
+
+    $('.nav i').removeClass('active');
+    $('.nav i').eq(current).addClass('active');
+
+});
 
 //*** funzioni ***//
 
@@ -22,7 +33,6 @@ function nextImg(){ //** Funzione Next **//
     activeImg.removeClass('active'); //tolgo la classe active all'img
     activeDot.removeClass('active'); //tolgo la classe active al pallino
 
-
     if (activeImg.hasClass('last')){
         $('.images img.first').addClass('active');
         $('.nav i.first').addClass('active');
@@ -32,7 +42,7 @@ function nextImg(){ //** Funzione Next **//
     }
 }
 
-function prevImg(){
+function prevImg(){  //** Funzione Prev **//
     var activeImg = $('.images img.active');
     var activeDot = $('.nav i.active');
 
